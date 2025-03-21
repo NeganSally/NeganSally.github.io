@@ -5,6 +5,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width" />
         <title>Nighen's Website</title>
+
+        <link rel="stylesheet" type="text/css" href="css/css.css">
     </head>
 
     <!--Body-->
@@ -15,12 +17,27 @@
             <a class="active" href="#Home">Home</a>
             <a href="#About">About</a>
             <a href="#GitHub">GitHub</a>
-            <a href="#Contact">Contact</a>
+            <!-- Onclick and ondblclick functions added to open and close the contact form -->
+            <a onclick="openForm()" ondblclick="closeForm()" href="#Contact">Contact</a>
         </div>
         <!-- END NAVBAR -->
 
+        <!-- Previous and next button -->
+        <a class="Previous" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="Next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+
         <br>
-        <br>
+        
+                <!-- Slideshow dots (these are another way for users to navigate through the slideshow) -->
+                <div style="text-align: center">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span> 
+                    <span class="dot" onclick="currentSlide(4)"></span> 
+                </div>
+            </div>
+        </div>
 
         <!--Background video-->
         <div id="Home">
@@ -63,11 +80,54 @@
                     <br>
                     <br>I am a graduate of <a href="https://www.academyoflearning.com/courses/html-and-css-essentials/" target="_blank">Academy of Learning</a>’s Software Developer course, and trained and experienced in the following web and programming languages: Python, and HTML/CSS. 
                     <br>
-                    <br>I am well versed in HTML/CSS and would love to work with you on your project. <a href="#Contact">Contact</a> me below!
+                    <br>I am a full stack developer that is well versed in Python, HTML, CSS and JavaScript. I would love to work with you on your future projects. <a href="#Contact">Contact</a> me below!
                 </p>
-            </div>
+            </strong>
         </div>
         <!-- END ABOUT -->
+
+        <!-- Slideshow section added -->
+        <div id="Slideshow">
+            <div id="Slideshow_Background"> 
+                <div id="Slideshow_Container">
+                    <!-- Slide 1 of 4 -->
+                    <div class="mySlides fade">
+                        <img class="Slideshow_Images" src="img/self.jpg" alt="Picture of yourself">
+                        <div class="text">I'm available to assist you on your project!</div>
+                    </div>
+                    <!-- Slide 2 of 4 -->
+                    <div class="mySlides fade">
+                        <img class="Slideshow_Images" src="img/html_css_js.jpeg" alt="HTML, CSS, and JS logos"> 
+                        <div class="text">I am a full-stack software developer,<br> trained in:<br>HTML, CSS, JavaScript,</div>
+                    </div>
+                    <!-- Slide 3 of 4 -->
+                    <div class="mySlides fade">
+                        <img class="Slideshow_Images" src="img/python.gif" alt="Python logo">
+                        <div class="text">the popular programming language Python,</div>
+                    </div>
+                    <!-- Slide 4 of 4 -->
+                    <div class="mySlides fade">
+                        <img class="Slideshow_Images" src="img/contact_me.jpg" alt="contact sym"> 
+                        <div class="text"><a class="white-text contact" onclick="openForm()">Contact me now!</a></div> 
+                    </div>
+                    <!-- Previous and next buttons -->
+                    <a class="Previous" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="Next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+
+                <br>
+
+                <!-- Slideshow dots (these are another way for users to navigate through the slideshow) -->
+                <div style="text-align: center">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span> 
+                    <span class="dot" onclick="currentSlide(4)"></span> 
+                    <span class="dot" onclick="currentSlide(5)"></span> 
+                    <span class="dot" onclick="currentSlide(6)"></span> 
+                </div>
+            </div>
+        </div>
 
         <!--GitHub section-->
         <div class="Row" id="GitHub">
@@ -87,285 +147,26 @@
         </div>
 
         <!--Contact section-->
-        <div class="Row" id="Contact">
-            <!--Contact image, left column-->
-            <div class="Column_2 Column_tall">
-                <img src="./img/contact.jpg" alt="Contact_Image">
+        <div id="Contact">
+            <button onclick="openForm()" class="Pop_Up_Button">CONTACT</button>
+            <div class="form-popup" id="myForm">
+                 <form action="https://formspree.io/info@learncodinganywhere.com" method="POST" class="form-container"> <!-- Here we are using a free online service from https://formspree.io/ to send our contact form to an email address of our choosing - note: it will not run unless live on the internet, you have to push it to your online website first -->
+                     <h1>Contact</h1>
+                     <label for="name"><b>Name</b></label>
+                       <input type="text" placeholder="Type your name here" name="name" required>
+                     <label for="phone"><b>Phone</b></label>
+                       <input type="text" placeholder="Type your phone number here" name="phone">
+                     <label for="email"><b>Email</b></label>		
+                       <input type="text" placeholder="Type your email address here" name="email" required>
+                     <label for="message"><b>Message</b></label>
+                       <input type="text" placeholder="Type your message here" name="message">
+          
+                     <button type="submit" class="btn">SUBMIT</button>
+                     <button type="button" class="btn cancel" onclick="closeForm()">CLOSE</button>
+                 </form>
             </div>
-            <!--Contact form, right column-->
-            <div class="Column_1 Column_tall">
-                <h1>Contact</h1>
-                <form action="" method="POST">
-                    <label>Name:</label>
-                        <input type="text" placeholder="Please enter your name here">
-                    <label>Email:</label>
-                        <input type="text" id="Email" name="Email" placeholder="Please enter your email here">
-                    <label>Message:</label>
-                        <input type="text" id="Message" name="Message" placeholder="Please write your message here">
-                        <input type="submit" value="SUBMIT">
-                    <form action="mailto:nighen.salatan@gmail.com" method="get" enctype="text/plain">
-                </form>
-            </div>
-        </div>
+         </div>
 
+        <script src="js/main.js"></script>
     </body>
-
-        <!-- STYLE -->
-        <style>
-
-            html {
-            scroll-behavior: smooth;
-            }
-
-            body {
-                margin: 0%; 
-            }
-        
-            h1 {
-                text-transform: uppercase;
-                font-family: "Fantasy", Papyrus;
-                text-align: center;
-                margin-top: 3%;
-                color: #1a1a1a; 
-                text-shadow: 2px 2px 5px rgb(190, 143, 103);
-            }
-
-            h1:hover {
-                filter: g6rayscale(5%);
-                transform: scale(1.1);
-                transition: transform 1s;
-            }
-
-            .white-text {
-                color: white;
-                text-shadow: 2px 2px 5px rgb(96, 63, 24);
-            }
-
-            p {
-                font-family: Perpetua, Rockwell Extra Bold;
-                text-align: justify; 
-                letter-spacing: 1px; 
-                font-size: 20px;
-                padding-left: 20px; 
-                padding-right: 20px;
-            }
-
-            p:hover {
-                transition: transform 1s; 
-                transform: scale(1.01); 
-            }
-
-            .center {
-                text-align: center;
-            }
-
-            
-            .center:hover {
-                transition: transform 2s;
-                transform: scale(1.1); 
-            }
-
-            a {
-                color: blue;
-            }
-
-            q {
-                font-style: italic;
-                text-shadow: 2px 2px 5px rgb(96, 63, 24);
-                color: white;
-            }
-
-            img {
-                filter: grayscale(80%);
-                border-radius: 8px;
-                max-width: 100%;
-                height: 340px;
-                display: block;
-                margin-left: auto; 
-                margin-right: auto;
-            }
-
-            img:hover {
-                filter: grayscale(5%);  
-                transition: transform 1s; 
-                transform: scale(1.1); 
-            }
-
-            @media screen and (max-width: 576px) {
-                img {
-                    height: 100px;
-                    margin-top: 150px;
-                }
-            }
-
-            footer {
-                padding: 2%;
-                background-color: white;
-            }
-
-            .Navbar {
-                overflow: hidden;
-                background-color: rgb(208, 177, 150);
-                position: fixed;
-                top: 0;
-                width: 100%;
-                z-index: 1;
-                -webkit-animation: moveNav 4s;
-                animation: moveNav 2s;
-            }
-
-            @keyframes moveNav {
-                from {top: -10vw;}
-                to {left: 0vw;}
-            }
-
-            .Navbar a {
-                float: left;
-                display: block;
-                color: white; 
-                padding: 14px 16px;
-                text-decoration: none;
-                font-family: "Fantasy", Papyrus;
-                font-size: 20px; 
-                text-align: center;
-                position: relative; 
-                -webkit-animation: moveNavText 5s;
-                animation: moveNavText 5s;  
-            }
-
-            @keyframes moveNavText {
-                from {right: -10vw;}
-                to {right: 0vw;}
-            }
-
-            @media screen and (max-width: 576px) {
-                .Navbar a{
-                    width: 25%;
-                    font-size: 12px;
-                }
-            }
-
-            .Navbar a:hover {
-                background-color: #fff;
-                color: rgb(255, 186, 58);
-                font-weight: bold;
-            }
-
-            .Navbar a.active {
-                background-color: rgb(123, 75, 52);
-            }
-
-            #COA {
-                position: fixed;
-                right: 0;
-                bottom: 0;
-                max-width: 100%;
-                z-index: -1;
-            }
-
-            @media screen and (max-width: 576px) {
-                #COA {
-                    display: none;
-                }
-            }
-
-            .Video_Text {
-                background: rgba(142, 215, 255, 0.5);
-                color: white;
-                text-shadow: 2px 2px 5px rgb(96, 63, 24);
-                width: 100%;
-                padding: 20px;
-                position: relative;
-                -webkit-animation: moveVideoText 5.75s;
-                animation: moveVideoText 3.5s;
-            }
-
-            @keyframes moveVideoText {
-                from {top: -100vw;} 
-                to {top: 0vw;}
-            }
-
-            * {
-                box-sizing: border-box;
-            } 
-
-            .Column_1 {
-                float: left;
-                width: 50%;
-                padding: 10px;
-                padding-top: 3%;
-                height: 400px; 
-                background-color: #fff9a4;
-            }
-
-            @media screen and (max-width: 576px) {
-                .Column_1 {
-                    overflow: auto;
-                }
-            }
-
-            .Column_2 {
-                float: left;
-                width: 50%;
-                padding: 10px;
-                padding-top: 1.9%;
-                height: 400px;
-                background-color: #fff;
-            }
-
-            .Column_tall {
-                padding-top: 3.5%;
-                height: 450px;
-            }
-
-            .Row:after {
-                content: ""; 
-                display: table; 
-                clear: both; 
-            }
-
-            input[type=text] {
-                width: 100%;
-                padding: 12px;
-                border: 1px solid rgb(138, 185, 255);
-                border-radius: 4px;
-                box-sizing: border-box;
-                margin-top: 6px; 
-                margin-bottom: 16px; 
-                resize: vertical; 
-                font-family: Perpetua, Rockwell Extra Bold;
-            }
-            input[type=text]:hover {
-                box-shadow: 0 0 5px #00004d inset;
-            }
-
-            input[type=submit] {
-                background-color: rgb(165, 97, 42);
-                color: white; 
-                font-weight: bold;
-                padding: 12px 20px; 
-                border: none; 
-                border-radius: 4px;
-                cursor: pointer;
-                display: block; 
-                margin-left: auto;
-                margin-right: auto;
-                font-family: Perpetua, Rockwell Extra Bold;
-            }
-
-            input[type=submit]:hover {
-                background-color: white; 
-                color: black; 
-                text-shadow: 2px 2px 5px white;
-                transform: scale(1.5); 
-                transition: transform 1.5s;
-            }
-
-            form {
-                border-radius: 5px;
-                background-color: rgb(234, 225, 255); 
-                padding: 10px;
-                font-family: "Trebuchet MS", Optima;
-            }
-        </style>
 </html>
